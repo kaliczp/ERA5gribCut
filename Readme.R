@@ -22,3 +22,5 @@ t2mo <- t(t2m)
 library(xts)
 t2mh <- xts(t2mo[,1] - 273.15, as.POSIXct(time(era5)))
 plot(apply.daily(t2mh, colMeans), main = "Rába")
+## Save to csv
+write.zoo(round(apply.daily(t2mh, colMeans),1), "ÓrásIdősor.csv", dec = ",", sep = ";")
